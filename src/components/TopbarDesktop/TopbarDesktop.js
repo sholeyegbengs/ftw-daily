@@ -73,6 +73,30 @@ const TopbarDesktop = props => {
     return currentPage === page || isAccountSettingsPage ? css.currentPage : null;
   };
 
+  // Listing Menu
+
+  const listMenu = authenticatedOnClientSide ? (
+    <Menu>
+      <MenuLabel>
+        <div>List Home</div>
+      </MenuLabel>
+      <MenuContent className={css.listMenuContent}>
+        <MenuItem key="ManageListingsPage">
+          <NamedLink className={classNames(css.listMenuLink, currentPageClass('ManageListingsPage') )} name="ManageListingsPage">
+          <span className={css.menuItemBorder} />
+            <FormattedMessage id="TopbarDesktop.listMenuLink" />
+          </NamedLink>
+          <NamedLink className={classNames(css.listMenuLink, currentPageClass('ManageListingsPage') )} name="ManageListingsPage">
+          <span className={css.menuItemBorder} />
+            <FormattedMessage id="TopbarDesktop.listMenuLink" />
+          </NamedLink>
+        </MenuItem>
+      </MenuContent>
+    </Menu>
+  ) : null ;
+
+  // End of Listing Menu
+
   const profileMenu = authenticatedOnClientSide ? (
     <Menu>
       <MenuLabel className={css.profileMenuLabel} isOpenClassName={css.profileMenuIsOpen}>
@@ -142,11 +166,17 @@ const TopbarDesktop = props => {
         />
       </NamedLink>
       {search}
-      <NamedLink className={css.createListingLink} name="NewListingPage">
-        <span className={css.createListing}>
-          <FormattedMessage id="TopbarDesktop.createListing" />
-        </span>
-      </NamedLink>
+      {listMenu}
+      {/* Add other listing options */}
+     
+            <NamedLink className={css.createListingLink} name="NewListingPage">
+            <span className={css.createListing}>
+              <FormattedMessage id="TopbarDesktop.createListing" />
+            </span>
+          </NamedLink>
+          
+        
+      
       {inboxLink}
       {profileMenu}
       {signupLink}

@@ -280,6 +280,7 @@ SearchPageComponent.defaultProps = {
   dateRangeFilterConfig: config.custom.dateRangeFilterConfig,
   keywordFilterConfig: config.custom.keywordFilterConfig,
   activeListingId: null,
+  capacityOptions: config.custom.capacityOptions,
 };
 
 SearchPageComponent.propTypes = {
@@ -292,6 +293,7 @@ SearchPageComponent.propTypes = {
   scrollingDisabled: bool.isRequired,
   searchInProgress: bool.isRequired,
   searchListingsError: propTypes.error,
+  capacityOptions: array,
   searchParams: object,
   tab: oneOf(['filters', 'listings', 'map']).isRequired,
   categories: array,

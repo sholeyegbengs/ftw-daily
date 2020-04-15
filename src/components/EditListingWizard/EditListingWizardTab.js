@@ -18,26 +18,32 @@ import {
   EditListingPoliciesPanel,
   EditListingPricingPanel,
 } from '../../components';
+import {EditListingCapacityPanel} from '../../components';
 
 import css from './EditListingWizard.css';
 
 export const AVAILABILITY = 'availability';
 export const DESCRIPTION = 'description';
+export const CAPACITY = 'capacity';
 export const FEATURES = 'features';
 export const POLICY = 'policy';
 export const LOCATION = 'location';
 export const PRICING = 'pricing';
 export const PHOTOS = 'photos';
 
+
 // EditListingWizardTab component supports these tabs
 export const SUPPORTED_TABS = [
   DESCRIPTION,
+  CAPACITY,
   FEATURES,
   POLICY,
   LOCATION,
   PRICING,
   AVAILABILITY,
   PHOTOS,
+  
+  
 ];
 
 const pathParamsToNextTab = (params, tab, marketplaceTabs) => {
@@ -94,6 +100,7 @@ const EditListingWizardTab = props => {
     updatedTab,
     updateInProgress,
     intl,
+    videos,
   } = props;
 
   const { type } = params;
@@ -220,6 +227,21 @@ const EditListingWizardTab = props => {
       return (
         <EditListingPricingPanel
           {...panelProps(PRICING)}
+          submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
+          onSubmit={values => {
+            onCompleteEditListingWizardTab(tab, values);
+          }}
+        />
+      );
+    }
+    //new capacity switch
+    case CAPACITY: {
+      const submitButtonTranslationKey = isNewListingFlow
+        ? 'EditListingWizard.saveNewCapacity'
+        : 'EditListingWizard.saveEditCapacity';
+      return (
+        <EditListingCapacityPanel
+          {...panelProps(CAPACITY)}
           submitButtonText={intl.formatMessage({ id: submitButtonTranslationKey })}
           onSubmit={values => {
             onCompleteEditListingWizardTab(tab, values);

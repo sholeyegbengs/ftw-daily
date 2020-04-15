@@ -228,6 +228,10 @@
   min-width: 276px;
   padding-top: 20px;
 }
+.listMenuContent{
+  min-width: 290px;
+  padding-top: 20px;
+}
 
 /* Authentication */
 .signupLink {
@@ -273,7 +277,8 @@
 }
 
 .profileSettingsLink,
-.yourListingsLink {
+.yourListingsLink,
+.listMenuLink{
   @apply --marketplaceH4FontStyles;
   position: relative;
   display: block;
@@ -293,7 +298,7 @@
     text-decoration: none;
 
     & .menuItemBorder {
-      width: 6px;
+      width: 8px;
       background-color: var(--marketplaceColor);
     }
   }

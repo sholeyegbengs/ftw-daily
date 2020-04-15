@@ -10,22 +10,22 @@ import {
   Footer,
   ExternalLink,
 } from '../../components';
-import css from './AboutPage.css';
-import image from './hero-background.jpg';
+import css from './faq.css';
+import image from './gsd.jpg';
 
-const AboutPage = () => {
+const FaqPage = () => {
   const { siteTwitterHandle, siteFacebookPage } = config;
   const siteTwitterPage = twitterPageURL(siteTwitterHandle);
 
   // prettier-ignore
   return (
     <StaticPage
-      title="About Us"
+      title="FAQ"
       schema={{
         '@context': 'http://schema.org',
-        '@type': 'AboutPage',
-        description: 'About Saunatime',
-        name: 'About page',
+        '@type': 'FaqPage',
+        description: 'Knarlee Frequently Asked Questions',
+        name: 'FAQ page',
       }}
     >
       <LayoutSingleColumn>
@@ -91,4 +91,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default FaqPage;

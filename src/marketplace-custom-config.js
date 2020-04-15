@@ -38,12 +38,19 @@ export const amenities = [
 ];
 
 export const categories = [
-  { key: 'smoke', label: 'Smoke' },
-  { key: 'electric', label: 'Electric' },
-  { key: 'wood', label: 'Wood' },
-  { key: 'other', label: 'Other' },
+  { key: 'Foster Home', label: 'Foster Home' },
+  { key: 'Pet Home Boarding', label: 'Pet Home Boarding' },
+  { key: 'Livestock Catering', label: 'Livestock Catering' },
+  
 ];
 
+//The newly added capacty option
+export const capacityOptions = [
+  { key: 'oneToThree', label: '1 to 3' },
+  { key: 'fourToSix', label: '4 to 6' },
+  { key: 'sevenToNine', label: '7 to 9' },
+  { key: '10plus', label: '10 plus' },
+];
 // Price filter configuration
 // Note: unlike most prices this is not handled in subunits
 export const priceFilterConfig = {
